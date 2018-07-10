@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="event" type="com.codificador.stopwatch.MainActivity"/>
+        <variable name="data" type="com.codificador.stopwatch.TimerValue"/>
+    </data>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".MainActivity"
+    android:background="@color/layout_bg">
+
+    <TextView
+        android:text="@={data.value}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:background="@drawable/button_bg"
+        android:textColor="@color/layout_bg"
+        android:onClick="@{()->event.start()}"
+        android:text="@string/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/buttonStart" />
+
+    <Button
+        android:background="@drawable/button_bg"
+        android:textColor="@color/layout_bg"
+        android:onClick="@{()->event.pause()}"
+        android:text="@string/pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonPause"
+        android:layout_alignBaseline="@id/buttonStart"
+        android:layout_alignBottom="@id/buttonStart"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:background="@drawable/button_bg"
+        android:textColor="@color/layout_bg"
+        android:onClick="@{()->event.reset()}"
+        android:text="@string/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/buttonPause"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonReset" />
+
+    <Button
+        android:background="@drawable/lap_button_bg"
+        android:textColor="@color/layout_bg"
+        android:onClick="@{()->event.lap()}"
+        android:text="@string/save_lap"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/buttonLap"
+        android:layout_below="@id/buttonStart"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/buttonLap"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/listView"/>
+
+</RelativeLayout>
+</layout>
